@@ -1,3 +1,4 @@
+'use strict';
 
 let money = prompt("Ваш бюджет на месяц?"),
     time = prompt("Введите дату в формате YYYY-MM-DD"),
@@ -13,8 +14,8 @@ let money = prompt("Ваш бюджет на месяц?"),
         optionalExpenses: {},
         income: [],
         savings: false
-    }
+    };
 
-appData.expenses.mounth = mounth1;      
-appData.expenses.howMuch = howMuch1;
+appData.expenses.mounth = howMuch;      
+appData.expenses.mounth1 = howMuch1;
 let allMoney = alert("Бюджет на день: " + money/30);
