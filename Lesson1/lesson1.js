@@ -16,6 +16,6 @@ let money = prompt("Ваш бюджет на месяц?"),
         savings: false
     };
 
-appData.expenses.mounth = howMuch;      
-appData.expenses.mounth1 = howMuch1;
+appData.expenses[mounth] = howMuch;      
+appData.expenses[mounth1] = howMuch1;
 let allMoney = alert("Бюджет на день: " + money/30);
