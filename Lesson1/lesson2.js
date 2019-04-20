@@ -32,7 +32,7 @@ for(let i = 0; i < 2; i++) {
 //          && a != '' && b != '' && a.length < 50) {
 //         appData.expenses[a] = b;
 //     } else{
-//         appData.expenses[a] = b;
+//         i--;
 //     }
 //     i++;
 // }
@@ -46,7 +46,7 @@ for(let i = 0; i < 2; i++) {
 //          && a != '' && b != '' && a.length < 50) {
 //         appData.expenses[a] = b;
 //     } else{
-//         appData.expenses[a] = b;
+//         i--;
 //     }
 //     i++;
 // } while (i < 2);
