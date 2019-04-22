@@ -73,7 +73,6 @@ function chooseOptExpenses() {
         }  else {
             i--;
         }
-        //i++;
     }
 }
 chooseOptExpenses();
