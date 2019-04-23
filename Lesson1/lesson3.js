@@ -36,7 +36,7 @@ chooseExpenses();
 
 function detectDayBudget() {
     appData.moneyPerDay = (appData.appMoney / 30).toFixed();
-    alert("Бюджет на день: " + appData.moneyPerDay / 30);//toFixed почему-то не работает
+    alert("Бюджет на день: " + appData.moneyPerDay); //всё работает
 }
 detectDayBudget();
 
