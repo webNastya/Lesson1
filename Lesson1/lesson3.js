@@ -33,10 +33,10 @@ function chooseExpenses() {
 }
 chooseExpenses();
 
-appData.moneyPerDay = (appData.appMoney / 30).toFixed();
 
 function detectDayBudget() {
-    let allMoney = alert("Бюджет на день: " + appData.moneyPerDay / 30);//toFixed почему-то не работает
+    appData.moneyPerDay = (appData.appMoney / 30).toFixed();
+    alert("Бюджет на день: " + appData.moneyPerDay / 30);//toFixed почему-то не работает
 }
 detectDayBudget();
 
@@ -65,7 +65,7 @@ function chackSavings() {
 chackSavings();
 
 function chooseOptExpenses() {
-    for (var i = 1; i < 4; i++) {
+    for (let i = 1; i < 4; i++) {
         let choose = prompt("Статья необязательных расходов?");
         if (typeof(choose) === 'string' && (typeof(choose)) != null && 
             choose != '' && choose.length < 50) {
