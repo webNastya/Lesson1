@@ -84,7 +84,7 @@ let appData = {
                 i++
             });
         } else {
-            i--
+            i--;
         }
     }
 };
