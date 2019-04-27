@@ -1,19 +1,16 @@
 'use strict';
 
 let menu = document.querySelector('.menu'),
-	column = document.querySelector('.column'),
-	menuItem = document.getElementsByClassName('menu-item'),
-	title = document.getElementsByClassName('title'),
-	li5 = document.createElement("li"),//new li
-	li2 = document.getElementsByClassName('menu-item[2]'),
+	column = document.querySelectorAll('.column'),
+	menuItem = document.querySelectorAll('.menu-item'),
+	title = document.querySelector('#title'),
 	prompt1 = document.getElementById('prompt'),
-	adv = document.getElementsByClassName('adv');
+	li5 = document.createElement("li"),
+	adv = document.querySelector('.adv').remove();
 
 
 //1.1
-//document.menu.insertBefore(li2, menu-item[1]); 
-//почему-то не работает новый порядок li
-//document.menu.replaceChild(menu-item[2], menu-item[1]);
+menu.insertBefore(menuItem[2], menuItem[1]); 
 
 //1.2
  li5.classList.add('menu-item');//new class to new li
@@ -24,12 +21,7 @@ let menu = document.querySelector('.menu'),
 document.body.style.background = 'url(../img/apple_true.jpg)';
 
 //3
-//title.innerHTML = 'Мы продаем только подлинную технику Apple';
-//не работает
-
-//4
-//column.removeChild(adv);
-//почему-то не работает
+title.textContent = 'Мы продаем только подлинную технику Apple';
 
 //5
 prompt1.textContent = prompt("Как вы относитесь к технике apple");
