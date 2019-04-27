@@ -16,7 +16,7 @@ let startBtn = document.getElementById('start'),
 	countBtn = document.getElementsByTagName('button')[2],
 	optionalexpensesItem = document.querySelectorAll('.optionalexpenses-item'),
 	chooseIncome = document.querySelector('.choose-income'),
-	savings = document.querySelector('#savings'),
+	chackSavings = document.querySelector('#savings'),
 	chooseSum = document.querySelector('.choose-sum'),
 	choosePercent = document.querySelector('.choose-percent'),
 	yearValue = document.querySelector('.year-value'),
@@ -71,7 +71,7 @@ optionalexpensesBtn.addEventListener('click', function () {
 });
 
 countBtn.addEventListener('click', function () { //не работает и не выдаёт ошибок в консоль
-	if (appData.appMoney != underfined) {
+	if (appData.appMoney != undefined) {
 		appData.moneyPerDay = (appData.appMoney / 30).toFixed();
 	    dayBudgetValue.textContent = appData.moneyPerDay;
 
