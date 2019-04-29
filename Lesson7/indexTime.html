@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p style="font-weight:bold;">Текущее время сайта: <span id="siteTime"></span></p>
+<script>
+  function myClock() {
+    var siteTime = new Date(); 
+    var hour = siteTime.getHours(); //получаем часы
+    var minute = siteTime.getMinutes(); 
+    var second = siteTime.getSeconds(); 
+    
+    if (hour < 10) hour = "0" + hour;
+    if (minute < 10) minute  = "0" + minute;
+    if (second < 10) second  = "0" + second;
+    
+    document.getElementById("siteTime").innerHTML = hour + ":" + minute + ":" + second; 
+  }
+  setInterval(myClock, 1000); //ставим выполнение данной функции каждую секунду 
+</script>
+
+</body>
+</html>

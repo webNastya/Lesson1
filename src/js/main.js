@@ -57,18 +57,18 @@ if (budgetValue[i] = '') {
 		});
 	}
 
-	for (var i = 0; i < budgetValue.length; i++) {
-		budgetValue[i].disabled = true;
-	}
-	for (var i = 0; i < budgetValue.length; i++) {
-		budgetValue[i].addEventListener('change', function () {
-			if (budgetValue[i] = '') {
-				countBudgetBtn.disabled = true;
-			} else {
-				countBudgetBtn.disabled = false;
-			}
-		});
-	}
+	// for (var i = 0; i < budgetValue.length; i++) {
+	// 	budgetValue[i].disabled = true;
+	// }
+	// for (var i = 0; i < budgetValue.length; i++) {
+	// 	budgetValue[i].addEventListener('change', function () {
+	// 		if (budgetValue[i] = '') {
+	// 			countBudgetBtn.disabled = true;
+	// 		} else {
+	// 			countBudgetBtn.disabled = false;
+	// 		}
+	// 	});
+	// }
 } else {
 	countBudgetBtn.disabled = false;
 }
