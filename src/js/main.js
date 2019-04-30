@@ -50,10 +50,10 @@ for(let i = 0; i < expensesItem.length; i++) {
 			console.log('false');
 		}
 		
-		if (expenses_1.length != '' && 
-			expenses_2.length != '' && 
-			expenses_3.length != '' && 
-			expenses_4.length != '') {
+		if (expenses_1.value != '' && 
+			expenses_2.value != '' && 
+			expenses_3.value != '' && 
+			expenses_4.value != '') {
 
 			expensesBtn.disabled = false;
 			expensesBtn.style.opacity = 1;
@@ -71,16 +71,20 @@ for(let i = 0; i < optionalExpensesItem.length; i++) {
 			console.log('false');
 		}
 		
-		if (expensesItm_1.length != '' && 
-			expensesItm_2.length != '' && 
-			expensesItm_3.length != '') {
+		if (expensesItm_1.value != '' && 
+			expensesItm_2.value != '' && 
+			expensesItm_3.value != '') {
 
 			optionalExpensesBtn.disabled = false;
 			optionalExpensesBtn.style.opacity = 1;
 		}
+
+		if (expensesBtn.disabled == false && optionalExpensesBtn.disabled == false) {
+			countBtn.disabled = false;
+			countBtn.style.opacity = 1;
+		}
 	});
 }
-
 
 
 startBtn.addEventListener('click', function() {
@@ -96,6 +100,10 @@ startBtn.addEventListener('click', function() {
     yearValue.value = new Date(Date.parse(time)).getFullYear();
     monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
     dayValue.value = new Date(Date.parse(time)).getDate();
+    for (var i = 0; i < inputs.length; i++) {
+    	inputs[i].disabled = false;
+		inputs[i].opacity = 1;
+    }
 });
 
 expensesBtn.addEventListener('click', function () {
@@ -119,17 +127,18 @@ optionalExpensesBtn.addEventListener('click', function () { //сделать п�
         let choose = optionalExpensesItem[i].value;
         if (typeof(choose) === 'string' && (typeof(choose)) != null && 
             choose != '' && choose.length < 50) {
-        appData.optionalExpenses[i] = choose;
-    	optionalExpensesValue.textContent += appData.optionalExpenses[i] + ' ';
+	        appData.optionalExpenses[i] = choose;
+	    	optionalExpensesValue.textContent += appData.optionalExpenses[i] + ' ';
         }  else {
             i--;
         }
-    }
+    } 
 });
+
 
 countBtn.addEventListener('click', function () { //не работает и не выдаёт ошибок в консоль
 	if (appData.appMoney != undefined) {
-		let summa = expensesItem[1] + expensesItem[3];
+		let summa = +expensesValue.textContent;
 		appData.moneyPerDay = ((appData.appMoney - summa) / 30).toFixed();
 	    dayBudgetValue.textContent = appData.moneyPerDay;
 
@@ -153,8 +162,11 @@ chooseIncome.addEventListener('input', function () {
             items != '' && items.length < 50) {
         appData.income = items.split(', ');
     	incomeValue.textContent = appData.income;
-     }   
+     }  else{
+
+     }
 });
+
 
 chackSavings.addEventListener('click', function () {
 	if (appData.savings == true) {
@@ -175,7 +187,7 @@ chooseSum.addEventListener('input', function () {
 		monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
 		yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
 	}
-});
+}); 
 
 choosePercent.addEventListener('input', function () {
 	if (appData.savings == true) {
