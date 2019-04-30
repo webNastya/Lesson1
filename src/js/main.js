@@ -1,6 +1,7 @@
 'use strict'
 
-let startBtn = document.getElementById('start'),
+let money, time,
+	startBtn = document.getElementById('start'),
 	budgetValue = document.getElementsByClassName('budget-value')[0],
 	dayBudgetValue = document.getElementsByClassName('daybudget-value')[0],
 	levelValue = document.getElementsByClassName('level-value')[0],
@@ -10,8 +11,7 @@ let startBtn = document.getElementById('start'),
 	monthSavingsValue = document.getElementsByClassName('monthsavings-value')[0],
 	yearSavingsValue = document.getElementsByClassName('yearsavings-value')[0],
 
-	expensesItem = document.getElementsByClassName('expenses-item'),
-	expensesItem2 = document.querySelectorAll('.expenses-item'),
+	expensesItem = document.querySelectorAll('.expenses-item'),
 	expensesBtn = document.getElementsByTagName('button')[0],
 	optionalExpensesBtn = document.getElementsByTagName('button')[1],
 	countBtn = document.getElementsByTagName('button')[2],
@@ -23,54 +23,62 @@ let startBtn = document.getElementById('start'),
 	yearValue = document.querySelector('.year-value'),
 	monthValue = document.querySelector('.month-value'),
 	dayValue = document.querySelector('.day-value'),
-	countBudgetBtn = document.getElementsByClassName('count-budget-btn');
+	countBudgetBtn = document.getElementsByClassName('count-budget-btn'),
+	inputs = document.getElementsByTagName('input');
 
-let money, time;
+for(let i = 0; i < inputs.length; i++) {
+	inputs[i].disabled = true;
+	inputs[i].opacity = 0.5;
+} 
+
+expensesBtn.disabled = true;
+optionalExpensesBtn.disabled = true;
+countBtn.disabled = true;
+expensesBtn.style.opacity = .5;
+optionalExpensesBtn.style.opacity = .5;
+countBtn.style.opacity = .5;
 
 
-if (budgetValue[i] = '') {
-	countBudgetBtn.disabled = true;
+for(let i = 0; i < expensesItem.length; i++) {
+	expensesItem[i].addEventListener('input', () => {
+		let expenses_1 = document.querySelector('#expenses_1'),
+			expenses_2 = document.querySelector('#expenses_2'),
+			expenses_3 = document.querySelector('#expenses_3'),
+			expenses_4 = document.querySelector('#expenses_4');
 
-	for (var i = 0; i < expensesItem2.length; i++) {
-		expensesItem2[i].disabled = true;
-	}
-	for (var i = 0; i < expensesItem.length; i++) {
-		expensesItem2[i].addEventListener('change', function () {
-			if (expensesItem[i] = '') {
-				expensesBtn.disabled = true;
-			} else {
-				expensesBtn.disabled = false;
-			}
-		});
-	}
+		if (expensesItem[i].value.length != '') {
+			console.log('false');
+		}
+		
+		if (expenses_1.length != '' && 
+			expenses_2.length != '' && 
+			expenses_3.length != '' && 
+			expenses_4.length != '') {
 
-	for (var i = 0; i < optionalExpensesItem.length; i++) {
-		optionalExpensesItem[i].disabled = true;
-	}
-	for (var i = 0; i < optionalExpensesItem.length; i++) {
-		optionalExpensesItem[i].addEventListener('change', function () {
-			if (optionalExpensesItem[i] = '') {
-				optionalExpensesBtn.disabled = true;
-			} else {
-				optionalExpensesBtn.disabled = false;
-			}
-		});
-	}
+			expensesBtn.disabled = false;
+			expensesBtn.style.opacity = 1;
+		}
+	});
+}
 
-	// for (var i = 0; i < budgetValue.length; i++) {
-	// 	budgetValue[i].disabled = true;
-	// }
-	// for (var i = 0; i < budgetValue.length; i++) {
-	// 	budgetValue[i].addEventListener('change', function () {
-	// 		if (budgetValue[i] = '') {
-	// 			countBudgetBtn.disabled = true;
-	// 		} else {
-	// 			countBudgetBtn.disabled = false;
-	// 		}
-	// 	});
-	// }
-} else {
-	countBudgetBtn.disabled = false;
+for(let i = 0; i < optionalExpensesItem.length; i++) {
+	optionalExpensesItem[i].addEventListener('input', () => {
+		let expensesItm_1 = document.querySelector('#optionalexpenses_1'),
+			expensesItm_2 = document.querySelector('#optionalexpenses_2'),
+			expensesItm_3 = document.querySelector('#optionalexpenses_3');
+
+		if (optionalExpensesItem[i].value.length != '') {
+			console.log('false');
+		}
+		
+		if (expensesItm_1.length != '' && 
+			expensesItm_2.length != '' && 
+			expensesItm_3.length != '') {
+
+			optionalExpensesBtn.disabled = false;
+			optionalExpensesBtn.style.opacity = 1;
+		}
+	});
 }
 
 
@@ -121,7 +129,7 @@ optionalExpensesBtn.addEventListener('click', function () { //сделать п�
 
 countBtn.addEventListener('click', function () { //не работает и не выдаёт ошибок в консоль
 	if (appData.appMoney != undefined) {
-		let summa = expensesItem2[1] + expensesItem2[3];
+		let summa = expensesItem[1] + expensesItem[3];
 		appData.moneyPerDay = ((appData.appMoney - summa) / 30).toFixed();
 	    dayBudgetValue.textContent = appData.moneyPerDay;
 
@@ -145,18 +153,7 @@ chooseIncome.addEventListener('input', function () {
             items != '' && items.length < 50) {
         appData.income = items.split(', ');
     	incomeValue.textContent = appData.income;
-     }  //else {
-    //     i--;
-    // }
-    // let i = 1; 
-    // if(i < appData.income.length) {
-    //     appData.income.forEach(function (item) {
-    //         alert(i +" Способы доп. заработка: " + item);
-    //         i++
-    //     });
-    // } else {
-    //     i--;
-    // } 
+     }   
 });
 
 chackSavings.addEventListener('click', function () {
