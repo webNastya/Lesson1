@@ -32,4 +32,61 @@ window.addEventListener('DOMContentLoaded', function () {
 			}
 		}
 	});
+
+	//Timer
+
+	let deadLine = '2019-05-05';
+
+	function getTimeRemeining(endtime) {
+		let t = Date.parse(endtime) - Date.parse(new Date()),
+			seconds = Math.floor((t/1000) % 60),
+			minutes = Math.floor((t/1000/60) % 60),
+			hours = Math.floor((t/(1000*60*60)));
+
+		return {
+			'total' : t, //кол-во милисекунд
+			'hours' : hours,
+			'minutes' : minutes,
+			'seconds' : seconds
+		};
+	}
+
+	function setClock(id, endtime) {
+		let timer = document.getElementById(id),
+			hours = timer.querySelector('.hours'),
+			minutes = timer.querySelector('.minutes'),
+			seconds = timer.querySelector('.seconds');
+			timeInterval = setInterval(updateClock, 1000);
+
+		function updateClock() {
+			let t = getTimeRemeining(endtime);
+				hours.textContent = t.hours;
+				minutes.textContent = t.minutes;
+				seconds.textContent = t.seconds;
+
+				// hours.innerHTML = ('0' + t.hours).slice(-2);
+				//   minutes.innerHTML = ('0' + t.minutes).slice(-2);
+				//   seconds.innerHTML = ('0' + t.seconds).slice(-2);
+
+			// if (t.hours < 10) {
+		 //      t.hours += "0";
+		 //    }
+		 //    if (t.minutes < 10) {
+		 //      t.minutes += "0";
+		 //    }
+		 //    if (t.seconds < 10) {
+		 //      t.seconds  += "0";
+		 //    };
+
+			if (t.total <= 0) {
+				clearInterval(timeInterval);
+			}
+
+			// if (t.total < 1) {
+			// 	clearInterval(timeInterval);
+			// }
+		}
+	}
+
+	setClock('timer', deadLine);
 });
