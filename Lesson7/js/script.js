@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	//Timer
 
-	let deadLine = '2019-05-05';
+	let deadLine = '2018-05-05';
 
 	function getTimeRemeining(endtime) {
 		let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -66,11 +66,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
 			if (t.total <= 0) {
 				clearInterval(timeInterval);
+				hours.textContent = '00';
+				minutes.textContent = '00';
+				seconds.textContent = '00';
 			}
-
-			// if (t.total < 1) {
-			// 	clearInterval(timeInterval);
-			// }
 		}
 	}
 
