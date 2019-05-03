@@ -55,28 +55,14 @@ window.addEventListener('DOMContentLoaded', function () {
 		let timer = document.getElementById(id),
 			hours = timer.querySelector('.hours'),
 			minutes = timer.querySelector('.minutes'),
-			seconds = timer.querySelector('.seconds');
+			seconds = timer.querySelector('.seconds'),
 			timeInterval = setInterval(updateClock, 1000);
 
 		function updateClock() {
 			let t = getTimeRemeining(endtime);
-				hours.textContent = t.hours;
-				minutes.textContent = t.minutes;
-				seconds.textContent = t.seconds;
-
-				// hours.innerHTML = ('0' + t.hours).slice(-2);
-				//   minutes.innerHTML = ('0' + t.minutes).slice(-2);
-				//   seconds.innerHTML = ('0' + t.seconds).slice(-2);
-
-			// if (t.hours < 10) {
-		 //      t.hours += "0";
-		 //    }
-		 //    if (t.minutes < 10) {
-		 //      t.minutes += "0";
-		 //    }
-		 //    if (t.seconds < 10) {
-		 //      t.seconds  += "0";
-		 //    };
+				hours.textContent = ('0' + t.hours).slice(-2);
+				minutes.textContent = ('0' + t.minutes).slice(-2);
+				seconds.textContent = ('0' + t.seconds).slice(-2);
 
 			if (t.total <= 0) {
 				clearInterval(timeInterval);
