@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	//Timer
 
-	let deadLine = '2018-05-05';
+	let deadLine = '2019-05-05';
 
 	function getTimeRemeining(endtime) {
 		let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -74,4 +74,37 @@ window.addEventListener('DOMContentLoaded', function () {
 	}
 
 	setClock('timer', deadLine);
+
+	//Modal
+
+	let more = document.querySelector('.more'),
+		overlay = document.querySelector('.overlay'),
+		close = document.querySelector('.popup-close');
+
+		more.addEventListener('click', function() {
+			overlay.style.display = 'block';
+			this.classList.add('more-splash');
+			document.body.style.overflow = 'hidden';
+		});
+
+		close.addEventListener('click', function(){
+			overlay.style.display = 'none';
+			more.classList.remove('more-splash');
+			document.body.style.overflow = '';
+		});
+
+	let descriptionBtn = document.querySelectorAll('.description-btn');
+
+	for (var i = 0; i < descriptionBtn.length; i++) {
+		descriptionBtn[i].addEventListener('click', function() {
+			overlay.style.display = 'block';
+			this.classList.add('more-splash');
+			document.body.style.overflow = 'hidden';
+		});
+
+		close.addEventListener('click', function(){
+			overlay.style.display = 'none';
+			document.body.style.overflow = '';
+		});
+	}
 });
