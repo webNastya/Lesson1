@@ -7,19 +7,17 @@
 <body>
   <input id = "age" value= "30">
 <script>
-  let age = document.getElementById('age');
-
-   function User(name, surname) {
-     this.name = name;
-     this.surname = surname;
-     this.value = age;
-   }
+  //let age = document.getElementById('age');
  
-   function showUser(surname, name) {
-      alert("Пользователь " + surname + " " + name + ", его возраст " + this.value);
+   function showUser(surname, name, value) {
+      function show() {
+         alert("Пользователь " + surname + " " + name + ", его возраст " + value + " лет");
+      }
+      show();
    }
+   
 
-   showUser("Иван", "Петриченко");
+   showUser("Иван", "Петриченко", 30);
 </script>
 </body>
 </html>
