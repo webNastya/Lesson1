@@ -9,15 +9,15 @@
 <script>
   //let age = document.getElementById('age');
  
-   function showUser(surname, name, value) {
+   function showUser(surname, name) {
       function show() {
-         alert("Пользователь " + surname + " " + name + ", его возраст " + value + " лет");
+         alert("Пользователь " + surname + " " + name + ", его возраст " + this.age.value + " лет");
       }
       show();
    }
    
 
-   showUser("Иван", "Петриченко", 30);
+   showUser("Иван", "Петриченко");
 </script>
 </body>
 </html>
