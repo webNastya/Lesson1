@@ -163,16 +163,17 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	// Form contacts
 
+	let tel = document.getElementsByName('tel');
+	tel.addEventListener('input', function(e){
+		if (/^[+]?\d+$/.test(this.value)) { 
+			tel.value = '';
+		}
+	}); //как работают регулярные выражения https://javascript.ru/basic/regular-expression+
+
+
 	formContact.addEventListener('submit', function(event) {
 		event.preventDefault();
 		formContact.appendChild(statusMessage);
-
-		let tel = document.getElementsByName('tel');
-		inputs[0].addEventListener('change', function(e){
-			if (!/^[+]?\d+$/.test(this.value)) { 
-				tel.value = '';
-			}
-		}); //как работают регулярные выражения https://javascript.ru/basic/regular-expression+
 
 		let request = new XMLHttpRequest(),
 			formData = new FormData(formContact),
