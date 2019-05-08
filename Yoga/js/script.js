@@ -160,6 +160,15 @@ window.addEventListener('DOMContentLoaded', function () {
 		event.preventDefault();
 		formContact.appendChild(statusMessage);
 	});
+	let phone = document.getElementsByName('phone');
+	for (let i =0; i<phone.length; i++) {
+		phone[i].addEventListener('keypress', function (e) {
+        if (!/\d/.test(e.key) && !/\+/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+	}
+	
 
 	// Form contacts
 
