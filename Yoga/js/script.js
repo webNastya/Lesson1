@@ -118,7 +118,7 @@ window.addEventListener('DOMContentLoaded', function () {
 	let form = document.querySelector('.main-form'),
 		input = form.getElementsByTagName('input'),
 		formContact = document.querySelector('#form'),
-		inputs = formContacts.getElementsByTagName('input'),
+		inputs = formContact.getElementsByTagName('input'),
 		statusMessage = document.createElement('div');
 
 		statusMessage.classList.add('status');
@@ -127,13 +127,13 @@ window.addEventListener('DOMContentLoaded', function () {
 		event.preventDefault();
 		form.appendChild(statusMessage);
 
-		let request = new XMLHttpRequest();
+		let request = new XMLHttpRequest(),
+			formData = new FormData(form),
+			obj = {};
+
 		request.open('POST', 'server.php');
 		request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 
-		let formData = new FormData(form);
-
-		let obj = {};
 		formData.forEach(function(value, key){
 			obj[key] = value;
 		});
@@ -167,13 +167,19 @@ window.addEventListener('DOMContentLoaded', function () {
 		event.preventDefault();
 		formContact.appendChild(statusMessage);
 
-		let request = new XMLHttpRequest();
+		let tel = document.getElementsByName('tel');
+		inputs[0].addEventListener('change', function(e){
+			if (!/^[+]?\d+$/.test(this.value)) { 
+				tel.value = '';
+			}
+		}); //как работают регулярные выражения https://javascript.ru/basic/regular-expression+
+
+		let request = new XMLHttpRequest(),
+			formData = new FormData(formContact),
+			obj = {};
 		request.open('POST', 'server.php');
 		request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 
-		let formData = new FormData(formContact);
-
-		let obj = {};
 		formData.forEach(function(value, key){
 			obj[key] = value;
 		});
