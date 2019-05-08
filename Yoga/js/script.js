@@ -164,9 +164,9 @@ window.addEventListener('DOMContentLoaded', function () {
 	// Form contacts
 
 	let tel = document.getElementsByName('tel');
-	tel.addEventListener('input', function(e){
-		if (/^[+]?\d+$/.test(this.value)) { 
-			tel.value = '';
+	tel[0].addEventListener('keypress', function(){
+		if (!/^[+]?\d+$/.test(this.value)) { 
+			tel[0].value = '';
 		}
 	}); //как работают регулярные выражения https://javascript.ru/basic/regular-expression+
 
