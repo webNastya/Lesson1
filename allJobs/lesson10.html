@@ -10,17 +10,26 @@
 	'use strict';
 	class Options {
 		constructor(height, width, bg, fontSize, textAlign) {
-		this.height = height;
-		this.width = width;
-		this.bg = bg;
-		this.fontSize = fontSize;
-		this.textAlign = textAlign;
+			this.height = height;
+			this.width = width;
+			this.bg = bg;
+			this.fontSize = fontSize;
+			this.textAlign = textAlign;
 		}
 		addDiv () {
-			let writeDiv = document.write('<div>' + "This is a div" + '</div>');
-			writeDiv.style.cssText = 'color: blue;'
+			let writeDiv = document.createElement("div");
+			writeDiv.value = "Hello world";
+			writeDiv.style.cssText = 'height: this.height;\
+				width: this.width;\
+				background-color: this.bg;\
+				font-size: this.fontSize;\
+				text-slign: this.textAlign;\
+			';
 		}
 	}
+	const square = new Options(100, 100, 'blue', 15, 15);
+	document.write(square.addDiv());
+
 </script>
 </body>
 </html>
