@@ -19,17 +19,18 @@
 		addDiv () {
 			let writeDiv = document.createElement("div");
 			writeDiv.value = "Hello world";
-			writeDiv.style.cssText = 'height: this.height;\
-				width: this.width;\
-				background-color: this.bg;\
-				font-size: this.fontSize;\
-				text-slign: this.textAlign;\
-			';
+			writeDiv.style.cssText = `height: ${this.height};
+				width: ${this.width};
+				background-color: ${this.bg};
+				font-size: ${this.fontSize};
+				text-slign: ${this.textAlign};
+			`;
+			document.body.appenChild(writeDiv);
 		}
 	}
 	const square = new Options(100, 100, 'blue', 15, 15);
-	document.write(square.addDiv());
-
+	square.addDiv();
+	//https://learn.javascript.ru/styles-and-classes
 </script>
 </body>
 </html>

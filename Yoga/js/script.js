@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function () {
++window.addEventListener('DOMContentLoaded', function () {
 	
 	'use strict';
 	let tab = document.querySelectorAll('.info-header-tab'),
@@ -169,7 +169,6 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 	}
 	
-
 	// Form contacts
 
 	let tel = document.getElementsByName('tel');
