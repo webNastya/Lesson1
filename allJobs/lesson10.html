@@ -17,15 +17,15 @@
 			this.textAlign = textAlign;
 		}
 		addDiv () {
-			let writeDiv = document.createElement("div");
-			writeDiv.value = "Hello world";
-			writeDiv.style.cssText = `height: ${this.height};
-				width: ${this.width};
+			let writeDiv = document.createElement("div")
+			writeDiv.textContent = "Hello world"
+			writeDiv.style.cssText = `height: ${this.height}px;
+				width: ${this.width}px;
 				background-color: ${this.bg};
-				font-size: ${this.fontSize};
+				font-size: ${this.fontSize}px;
 				text-slign: ${this.textAlign};
 			`;
-			document.body.appenChild(writeDiv);
+			document.body.appendChild(writeDiv);
 		}
 	}
 	const square = new Options(100, 100, 'blue', 15, 15);
