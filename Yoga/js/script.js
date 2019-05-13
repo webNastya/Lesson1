@@ -123,10 +123,10 @@
 		statusMessage.classList.add('status');
 
 	function sendForm(elem) {
-		elem.addEventListener('submit', function(event) {
-			event.preventDefault();
-			form.appendChild(statusMessage);
-			let formData = new FormData(form);
+		elem.addEventListener('submit', function(e) {
+			e.preventDefault();
+			elem.appendChild(statusMessage);
+			let formData = new FormData(elem);
 
 			function postData(data){
 				return new Promise(function (resolve, reject) {
@@ -136,17 +136,23 @@
 
 					request.onreadystatechange = function(){
 						if (request.readyState < 4) {
-							resolve()
+							resolve();
 						} else if (request.readyState === 4 && request.status == 200) {
-							if (request.status === 200 && request.status < 3) {
-								resolve()
+							if (request.status === 200 && request.status < 300) {
+								resolve();
 							} else {
-								reject()
+								reject();
 							}
 						}
 					}
 					request.send(data);
-				})
+
+					formData.forEach(function(value, key){
+						obj[key] = value;
+					});
+					let json = JSON.stringify(obj);
+					request.send(json);
+				});
 			}
 
 			function clearInput(){
@@ -157,65 +163,29 @@
 
 			postData(formData)
 				.then(()=> statusMessage.innerHTML = message.loading)
-				.then(()=>{
-					thanksModal.style.display = 'block';
-					mainModal.style.display = 'none';
-					statusMessage.innerHTML = '';
-				})
+				.then(()=> statusMessage.innerHTML = message.success)
 				.catch(()=> statusMessage.innerHTML = message.failure)
-				.then(clearInput)		
+				.then(clearInput);	
 		});
-		let phone = document.getElementsByName('phone');
-		for (let i =0; i<phone.length; i++) {
-			phone[i].addEventListener('keypress', function (e) {
-		        if (!/\d/.test(e.key) && !/\+/.test(e.key)) {
-		            e.preventDefault();
-		        }
-	    	});
-		}
 	}
 
 	sendForm(form);
 	sendForm(formContact);
-	
-	// Form contacts
+
+	let phone = document.getElementsByName('phone');
+	for (let i = 0; i < phone.length; i++) {
+		phone[i].addEventListener('keypress', function (e) {
+	        if (!/\d/.test(e.key) && !/\+/.test(e.key)) {
+	            e.preventDefault();
+	        }
+    	});
+	}
 
 	let tel = document.getElementsByName('tel');
-	tel[0].addEventListener('keypress', function(){
-		if (!/^[+]?\d+$/.test(this.value)) { 
-			tel[0].value = '';
+	tel[0].addEventListener('keypress', function(e){
+		if (!/\d/.test(e.key) && !/\+/.test(e.key)) { 
+			e.preventDefault();
 		}
-	}); //как работают регулярные выражения https://javascript.ru/basic/regular-expression+
+	}); 
 
-
-	formContact.addEventListener('submit', function(event) {
-		event.preventDefault();
-		formContact.appendChild(statusMessage);
-
-		let request = new XMLHttpRequest(),
-			formData = new FormData(formContact),
-			obj = {};
-		request.open('POST', 'server.php');
-		request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-
-		formData.forEach(function(value, key){
-			obj[key] = value;
-		});
-		let json = JSON.stringify(obj);
-
-		request.send(json);
-
-		request.addEventListener('readystatechange', function(){
-			if (request.readyState < 4) {
-				statusMessage.innerHTML = message.loading;
-			} else if (request.readyState === 4 && request.status == 200) {
-				statusMessage.innerHTML = message.success;
-			} else {
-				statusMessage.innerHTML = message.failure;
-			}
-		});
-		for (let i = 0; i < inputs.length; i++) {
-			inputs[i]. value = '';
-		}
-	});
 });
