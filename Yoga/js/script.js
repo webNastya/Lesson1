@@ -146,12 +146,12 @@
 						}
 					}
 					request.send(data);
-
+					let obj = {}
 					formData.forEach(function(value, key){
 						obj[key] = value;
 					});
 					let json = JSON.stringify(obj);
-					request.send(json);
+					data.send(json);
 				});
 			}
 
