@@ -156,8 +156,9 @@
 			}
 
 			function clearInput(){
-				for (let i = 0; i < input.length; i++) {
-					input[i]. value = '';
+				let inputsAll = document.querySelectorAll('input');
+				for (let i = 0; i < inputsAll.length; i++) {
+					inputsAll[i]. value = '';
 				}
 			}
 
