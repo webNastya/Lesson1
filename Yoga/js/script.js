@@ -151,7 +151,6 @@
 						obj[key] = value;
 					});
 					let json = JSON.stringify(obj);
-					data.send(json);
 				});
 			}
 
