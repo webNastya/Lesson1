@@ -243,7 +243,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	let persons = document.querySelectorAll('.counter-block-input')[0],
 		restDays = document.querySelectorAll('.counter-block-input')[1],
-		counterInput = document.querySelectorAll('.counter-block-input'),
 		place = document.getElementById('select'),
 		totalValue = document.getElementById('total'),
 		personsSum = 0,
@@ -283,7 +282,7 @@ window.addEventListener('DOMContentLoaded', function () {
 			totalValue.innerHTML = a * this.options[this.selectedIndex].value;
 		}
 	});
-	//let counterInput = document.querySelectorAll('.counter-block-input');
+	let counterInput = document.querySelectorAll('.counter-block-input');
 	counterInput[0].addEventListener('keypress', function(e){
 		if (!/\d/.test(e.key)) { 
 			e.preventDefault();
