@@ -182,7 +182,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	let tel = document.getElementsByName('tel');
 	tel[0].addEventListener('keypress', function(e){
-		if (!/\d/.test(e.key) && !/\+/.test(e.key)) { 
+		if (!/\d/.test(e.key) && !/\+/.test(e.key) && /\0/.test(e.key)) { 
 			e.preventDefault();
 		}
 	});
@@ -259,14 +259,13 @@ window.addEventListener('DOMContentLoaded', function () {
 		if (restDays.value == '' || persons.value == '') {
 			totalValue.innerHTML = 0;
 		} else {
-			if (place.value = mumbai) {
+			if (place = mumbai) {
 				totalValue.innerHTML = total * mumbai.value;
-			} else if (place.value = kerala) {
+			} else if (place = kerala) {
 				totalValue.innerHTML = total * kerala;
 			} else {
 				totalValue.innerHTML = total * varanasi.valuev;
 			}
-			//totalValue.innerHTML = total;
 		}
 	});
 
@@ -277,14 +276,13 @@ window.addEventListener('DOMContentLoaded', function () {
 		if (persons.value == '' || restDays.value == '') {
 			totalValue.innerHTML = 0;
 		} else {
-			if (place.value = mumbai) {
+			if (place = mumbai) {
 				totalValue.innerHTML = total * mumbai.value;
-			} else if (place.value = kerala) {
+			} else if (place = kerala) {
 				totalValue.innerHTML = total * kerala;
 			} else {
 				totalValue.innerHTML = total * varanasi.valuev;
 			}
-			//totalValue.innerHTML = total;
 		}
 	});
 
@@ -297,10 +295,17 @@ window.addEventListener('DOMContentLoaded', function () {
 			totalValue.innerHTML = a * this.options[this.selectedIndex].value;
 		}
 	});
+
+	if (restDays.value == 0 || persons.value == 0) {
+		totalValue.innerHTML = 0;
+	}
+
 	let counterInput = document.querySelectorAll('.counter-block-input');
-	counterInput[0].addEventListener('keypress', function(e){
-		if (!/\d/.test(e.key)) { 
-			e.preventDefault();
-		}
-	});
+	for (let i = 0; i < counterInput.length; i++) {
+		counterInput[i].addEventListener('keypress', function(e){
+			if (!/\d/.test(e.key)) { 
+				e.preventDefault();
+			} 
+		});
+	}
 });
