@@ -116,9 +116,7 @@ window.addEventListener('DOMContentLoaded', function () {
 	};
 
 	let form = document.querySelector('.main-form'),
-		input = form.getElementsByTagName('input'),
 		formContact = document.querySelector('#form'),
-		inputs = formContact.getElementsByTagName('input'),
 		statusMessage = document.createElement('div');
 		statusMessage.classList.add('status');
 
@@ -247,7 +245,10 @@ window.addEventListener('DOMContentLoaded', function () {
 		totalValue = document.getElementById('total'),
 		personsSum = 0,
 		daysSum = 0,
-		total = 0;
+		total = 0,
+		mumbai = document.querySelector('#mumbai'),
+		kerala = document.querySelector('#kerala'),
+		varanasi = document.querySelector('#varanasi');
 
 	totalValue.innerHTML = 0;
 
@@ -258,7 +259,14 @@ window.addEventListener('DOMContentLoaded', function () {
 		if (restDays.value == '' || persons.value == '') {
 			totalValue.innerHTML = 0;
 		} else {
-			totalValue.innerHTML = total;
+			if (place.value = mumbai) {
+				totalValue.innerHTML = total * mumbai.value;
+			} else if (place.value = kerala) {
+				totalValue.innerHTML = total * kerala;
+			} else {
+				totalValue.innerHTML = total * varanasi.valuev;
+			}
+			//totalValue.innerHTML = total;
 		}
 	});
 
@@ -269,7 +277,14 @@ window.addEventListener('DOMContentLoaded', function () {
 		if (persons.value == '' || restDays.value == '') {
 			totalValue.innerHTML = 0;
 		} else {
-			totalValue.innerHTML = total;
+			if (place.value = mumbai) {
+				totalValue.innerHTML = total * mumbai.value;
+			} else if (place.value = kerala) {
+				totalValue.innerHTML = total * kerala;
+			} else {
+				totalValue.innerHTML = total * varanasi.valuev;
+			}
+			//totalValue.innerHTML = total;
 		}
 	});
 
