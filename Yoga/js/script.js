@@ -256,7 +256,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		personsSum = +this.value;
 		total = (daysSum + personsSum)*4000;
 
-		if (restDays.value == '' || persons.value == '') {
+		if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0) {
 			totalValue.innerHTML = 0;
 		} else {
 			if (place = mumbai) {
@@ -273,7 +273,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		daysSum = +this.value;
 		total = (daysSum + personsSum)*4000;
 
-		if (persons.value == '' || restDays.value == '') {
+		if (persons.value == '' || restDays.value == '' || restDays.value == 0 || persons.value == 0) {
 			totalValue.innerHTML = 0;
 		} else {
 			if (place = mumbai) {
@@ -288,7 +288,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
 	place.addEventListener('change', function(){
-		if (restDays.value == '' || persons.value == '') {
+		if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0) {
 			totalValue.innerHTML = 0;
 		} else {
 			let a = total;
@@ -296,9 +296,6 @@ window.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
-	if (restDays.value == 0 || persons.value == 0) {
-		totalValue.innerHTML = 0;
-	}
 
 	let counterInput = document.querySelectorAll('.counter-block-input');
 	for (let i = 0; i < counterInput.length; i++) {
