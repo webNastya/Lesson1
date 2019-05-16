@@ -245,10 +245,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		totalValue = document.getElementById('total'),
 		personsSum = 0,
 		daysSum = 0,
-		total = 0,
-		mumbai = document.querySelector('#mumbai'),
-		kerala = document.querySelector('#kerala'),
-		varanasi = document.querySelector('#varanasi');
+		total = 0;
 
 	totalValue.innerHTML = 0;
 
