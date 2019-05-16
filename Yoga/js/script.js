@@ -259,13 +259,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0) {
 			totalValue.innerHTML = 0;
 		} else {
-			if (place = mumbai) {
-				totalValue.innerHTML = total * mumbai.value;
-			} else if (place = kerala) {
-				totalValue.innerHTML = total * kerala;
-			} else {
-				totalValue.innerHTML = total * varanasi.valuev;
-			}
+			totalValue.innerHTML = total * place.options[place.selectedIndex].value;
 		}
 	});
 
@@ -276,13 +270,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		if (persons.value == '' || restDays.value == '' || restDays.value == 0 || persons.value == 0) {
 			totalValue.innerHTML = 0;
 		} else {
-			if (place = mumbai) {
-				totalValue.innerHTML = total * mumbai.value;
-			} else if (place = kerala) {
-				totalValue.innerHTML = total * kerala;
-			} else {
-				totalValue.innerHTML = total * varanasi.valuev;
-			}
+			totalValue.innerHTML = total * place.options[place.selectedIndex].value;
 		}
 	});
 

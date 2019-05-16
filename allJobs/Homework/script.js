@@ -1,5 +1,5 @@
 $(document).ready(function() {
 
-	// Ваш код
+	$('li:eq(2)').on('click')
 
 }); 
