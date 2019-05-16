@@ -4,14 +4,9 @@ $(document).ready(function() {
 		$('.overlay').animate(
 			{
 				opacity: 'show'
-			}, 3000
+			},2000
 		);
-		$('.modal').animate(
-			{
-				opacity: 'show',
-				height: 'show'
-			}, 3000
-		);
+		$('.modal').slideDown(2000)
 	});
 
 
@@ -19,15 +14,10 @@ $(document).ready(function() {
 		$('.overlay').animate(
 			{
 				opacity: 'show'
-			}, 3000
+			}, 2000
 		);
 
-		$('.modal').animate(
-			{
-				opacity: 'show',
-				height: 'show'
-			}, 3000
-		);
+		$('.modal').slideDown(2000)
 	});
 
 
@@ -35,15 +25,10 @@ $(document).ready(function() {
 		$('.overlay').animate(
 			{
 				opacity: 'show'
-			}, 3000
+			}, 2000
 		);
 
-		$('.modal').animate(
-			{
-				opacity: 'show',
-				height: 'show'
-			}, 3000
-		);
+		$('.modal').slideDown(2000)
 
 	});
 
@@ -54,14 +39,9 @@ $(document).ready(function() {
 		$('.overlay').animate(
 			{
 				opacity: 'hide'
-			}, 3000
+			}, 2000
 		);
 
-		$('.modal').animate(
-			{
-				opacity: 'hide',
-				height: 'hide'
-			}, 3000
-		);
+		$('.modal').slideUp(2000)
 	});
 }); 
