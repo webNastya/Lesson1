@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function () {
-	
+	//Show Info
 	'use strict';
 	let tab = document.querySelectorAll('.info-header-tab'),
 		info = document.querySelector('.info-header'),
@@ -103,7 +103,7 @@ window.addEventListener('DOMContentLoaded', function () {
 			more.classList.remove('more-splash');
 			document.body.style.overflow = '';
 		});
-	};
+	}
 	modalMore();
 	closeModal();
 
@@ -142,8 +142,8 @@ window.addEventListener('DOMContentLoaded', function () {
 								reject();
 							}
 						}
-					}
-					let obj = {}
+					};
+					let obj = {};
 					formData.forEach(function(value, key){
 						obj[key] = value;
 					});
@@ -212,14 +212,14 @@ window.addEventListener('DOMContentLoaded', function () {
 			dots.forEach((item) => item.classList.remove('dot-active'));
 
 			slides[slideIndex - 1].style.display = 'block';
-			dots[slideIndex - 1].classList.add('dot-active')
+			dots[slideIndex - 1].classList.add('dot-active');
 		}
 
 		function plusSlides(n){
-			showSlides(slideIndex += n)
+			showSlides(slideIndex += n);
 		}
 		function currentSlide(n){
-			showSlides(slideIndex = n)
+			showSlides(slideIndex = n);
 		}
 
 		prev.addEventListener('click', function(){
