@@ -130,7 +130,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	//Timer
 
-	let deadLine = '2019-05-05';
+	let deadLine = '2019-05-20';
 
 	function getTimeRemeining(endtime) {
 		let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -348,7 +348,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		personsSum = +this.value;
 		total = (daysSum + personsSum)*4000;
 
-		if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0) {
+		if (restDays.value == '' || persons.value == '') {
 			totalValue.innerHTML = 0;
 		} else {
 			totalValue.innerHTML = total * place.options[place.selectedIndex].value;
@@ -359,7 +359,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		daysSum = +this.value;
 		total = (daysSum + personsSum)*4000;
 
-		if (persons.value == '' || restDays.value == '' || restDays.value == 0 || persons.value == 0) {
+		if (persons.value == '' || restDays.value == '') {
 			totalValue.innerHTML = 0;
 		} else {
 			totalValue.innerHTML = total * place.options[place.selectedIndex].value;
@@ -368,7 +368,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
 	place.addEventListener('change', function(){
-		if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0) {
+		if (restDays.value == '' || persons.value == '') {
 			totalValue.innerHTML = 0;
 		} else {
 			let a = total;
@@ -380,6 +380,7 @@ window.addEventListener('DOMContentLoaded', function () {
 	let counterInput = document.querySelectorAll('.counter-block-input');
 	for (let i = 0; i < counterInput.length; i++) {
 		counterInput[i].addEventListener('keypress', function(e){
+			this.value = counterInput[i].value.replace(/^0/,'');
 			if (!/\d/.test(e.key)) { 
 				e.preventDefault();
 			} 

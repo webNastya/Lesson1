@@ -13,7 +13,7 @@ function calc() {
 		personsSum = +this.value;
 		total = (daysSum + personsSum)*4000;
 
-		if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0) {
+		if (restDays.value == '' || persons.value == '') {
 			totalValue.innerHTML = 0;
 		} else {
 			totalValue.innerHTML = total * place.options[place.selectedIndex].value;
@@ -24,7 +24,7 @@ function calc() {
 		daysSum = +this.value;
 		total = (daysSum + personsSum)*4000;
 
-		if (persons.value == '' || restDays.value == '' || restDays.value == 0 || persons.value == 0) {
+		if (persons.value == '' || restDays.value == '') {
 			totalValue.innerHTML = 0;
 		} else {
 			totalValue.innerHTML = total * place.options[place.selectedIndex].value;
@@ -33,7 +33,7 @@ function calc() {
 
 
 	place.addEventListener('change', function(){
-		if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0) {
+		if (restDays.value == '' || persons.value == '') {
 			totalValue.innerHTML = 0;
 		} else {
 			let a = total;
@@ -45,6 +45,7 @@ function calc() {
 	let counterInput = document.querySelectorAll('.counter-block-input');
 	for (let i = 0; i < counterInput.length; i++) {
 		counterInput[i].addEventListener('keypress', function(e){
+			this.value = counterInput[i].value.replace(/^0/,'');
 			if (!/\d/.test(e.key)) { 
 				e.preventDefault();
 			} 
