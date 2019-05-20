@@ -344,6 +344,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	totalValue.innerHTML = 0;
 
+	if (restDays.value == 0 || persons.value == 0) {
+		totalValue.innerHTML = 0;
+	}
+
 	persons.addEventListener('change', function(){
 		personsSum = +this.value;
 		total = (daysSum + personsSum)*4000;

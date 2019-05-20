@@ -1,4 +1,3 @@
-'use strict';
 function tabs() {
 	let tab = document.querySelectorAll('.info-header-tab'),
 		info = document.querySelector('.info-header'),

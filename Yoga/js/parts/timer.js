@@ -1,4 +1,3 @@
-'use strict';
 function timer() {
     let deadLine = '2019-05-05';
 
