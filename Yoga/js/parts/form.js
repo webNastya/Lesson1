@@ -72,7 +72,7 @@ function form() {
 
 	let tel = document.getElementsByName('tel');
 	tel[0].addEventListener('keypress', function(e){
-		if (!/\d/.test(e.key) && !/\+/.test(e.key) && /\0/.test(e.key)) { 
+		if (!/\d/.test(e.key) || !/\+/.test(e.key) || /\0/.test(e.key)) { 
 			e.preventDefault();
 		}
 	});

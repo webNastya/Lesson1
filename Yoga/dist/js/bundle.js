@@ -277,7 +277,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	let tel = document.getElementsByName('tel');
 	tel[0].addEventListener('keypress', function(e){
-		if (!/\d/.test(e.key) && !/\+/.test(e.key) && /\0/.test(e.key)) { 
+		if (!/\d/.test(e.key) && !/\+/.test(e.key)) { 
 			e.preventDefault();
 		}
 	});
@@ -338,38 +338,12 @@ window.addEventListener('DOMContentLoaded', function () {
 		restDays = document.querySelectorAll('.counter-block-input')[1],
 		place = document.getElementById('select'),
 		totalValue = document.getElementById('total'),
+		counter = document.querySelectorAll('.counter'),
 		personsSum = 0,
 		daysSum = 0,
 		total = 0;
 
 	totalValue.innerHTML = 0;
-
-	if (restDays.value == 0 || persons.value == 0) {
-		totalValue.innerHTML = 0;
-	}
-
-	persons.addEventListener('change', function(){
-		personsSum = +this.value;
-		total = (daysSum + personsSum)*4000;
-
-		if (restDays.value == '' || persons.value == '') {
-			totalValue.innerHTML = 0;
-		} else {
-			totalValue.innerHTML = total * place.options[place.selectedIndex].value;
-		}
-	});
-
-	restDays.addEventListener('change', function(){
-		daysSum = +this.value;
-		total = (daysSum + personsSum)*4000;
-
-		if (persons.value == '' || restDays.value == '') {
-			totalValue.innerHTML = 0;
-		} else {
-			totalValue.innerHTML = total * place.options[place.selectedIndex].value;
-		}
-	});
-
 
 	place.addEventListener('change', function(){
 		if (restDays.value == '' || persons.value == '') {
@@ -379,6 +353,20 @@ window.addEventListener('DOMContentLoaded', function () {
 			totalValue.innerHTML = a * this.options[this.selectedIndex].value;
 		}
 	});
+
+	for (let i = 0; i < counter.length; i++) {
+		counter[i].addEventListener('change', function(){
+			personsSum = +persons.value;
+			daysSum = +restDays.value;
+			total = (daysSum + personsSum)*4000;
+
+			if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0) {
+				totalValue.innerHTML = 0;
+			} else {
+				totalValue.innerHTML = total * place.options[place.selectedIndex].value;
+			}
+		});
+	}
 
 
 	let counterInput = document.querySelectorAll('.counter-block-input');
